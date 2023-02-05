@@ -6,27 +6,40 @@ import Navbar from "./components/Navbar";
 import ShipCard from "./components/ShipCard";
 
 function App() {
+  //States
   const [shipList, setShipList] = useState([]);
+/*   const [shipImages, setShipImages] = useState([]);  */
 
-  // Gets the list of ships from the API and puts in "shipList"
+
+  // Effects: gets the list of ships from the API and puts in "shipList"
   useEffect(() => {
     axios.get(`https://swapi.dev/api/starships/`).then((res) => {
       setShipList(res.data.results);
     });
   }, []);
 
-  console.log(shipList);
+  /* useEffect(() => {
+    axios.get(`https://starwars-visualguide.com/assets/img/starships`).then((res) => {
+      setShipImages(res.data.results);
+    });
+  }, []); */
+  
 
-  /* const ships = shipList.map((item) => <div>{item.name}</div>); */
-  const ships = shipList.map((item) => (
-    <ShipCard name={item.name} model={item.model} />
+  // Mapping
+  const shipCards = shipList.map((item) => (
+    <>
+    <ShipCard item={item}/>
+    </>
   ));
+console.log(shipList)
+
 
   return (
     <div>
       <Header />
       <Navbar />
-      {ships}
+      {shipCards}
+    
     </div>
   );
 }

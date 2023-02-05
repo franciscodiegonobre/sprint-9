@@ -33,6 +33,14 @@ nav {
   background-color: rgb(101, 95, 95) ;
 }
 
-h3, h4, ul {
+.shipcardDetails {
+  background-color: rgb(44, 41, 41) ;
+}
+
+h3, h4, ul, p {
   color: rgb(212, 205, 205);
+}
+
+h3.uppercase {
+  text-transform: uppercase;
 }
