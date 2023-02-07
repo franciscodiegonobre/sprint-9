@@ -41,7 +41,7 @@ const callApiImages = async () => {
 
 //Effect to stop the API requests if the max number of pages is reached, else it shows a message
 useEffect(() => {
-  if (currentPage <= TOTAL_PAGES) {
+  if (currentPage > 0 && currentPage <= TOTAL_PAGES) {
     callApi();
     callApiImages();
   } else {
