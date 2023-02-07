@@ -44,3 +44,7 @@ h3, h4, ul, p {
 h3.uppercase {
   text-transform: uppercase;
 }
+
+#sentinel {
+  height: 10px;
+}
