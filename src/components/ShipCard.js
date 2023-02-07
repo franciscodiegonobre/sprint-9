@@ -18,6 +18,7 @@ export default function ShipCard(props) {
         <ShipCardDetails
           toggleDetails={toggleDetails}
           name={props.item.name}
+          img={props.item.img}
           model={props.item.model}
           starship_class={props.item.starship_class}
           manufacturer={props.item.manufacturer}

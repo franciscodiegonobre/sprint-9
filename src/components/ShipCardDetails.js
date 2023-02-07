@@ -1,9 +1,16 @@
 import React from "react";
+import defaultImage from "../img/no_image_available.jpg";
 
 export default function ShipCardDetails(props) {
+  // Replace image function
+  const replaceImage = (error) => {
+    error.target.src = defaultImage;
+  };
+
   return (
     <div className="shipcardDetails">
       <p>{props.name}</p>
+      <img src={`${props.img}`} onError={replaceImage} />
       <p>MODEL: {props.model}</p>
       <p>STARSHIP CLASS: {props.starship_class}</p>
       <p>MANUFACTURER: {props.manufacturer}</p>
