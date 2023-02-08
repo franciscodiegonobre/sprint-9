@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -55,11 +56,7 @@ useEffect(() => {
   }
 
 // Maps over shipList state and passes all of its values to as props to Shipcard
-  const shipCards = shipList.map((item) => (
-    <>
-    <ShipCard item={item}/>
-    </>
-  ));
+  const shipCards = shipList.map((item) => (<ShipCard item={item}/>));
 
 // Code to apply infinite scroll to the API calls and increment the currentPage state
 useEffect(() => {
@@ -77,10 +74,12 @@ useEffect(() => {
     <div>
       <Header />
       <Navbar />
-      {shipCards}
-      {loading && <p>Loading...</p>}
-      <div id="sentinel"></div>
-      {!hasMoreResults && <p>No more starships to be displayed</p>}
+      <div className="container">
+        {shipCards}
+        {loading && <p>Loading...</p>}
+        <div id="sentinel"></div>
+        {!hasMoreResults ? <div></div> : <p>No more starships to be displayed</p>}
+      </div>
     </div>
   );
 }

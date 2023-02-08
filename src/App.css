@@ -5,6 +5,8 @@
 body {
   margin: 0;
   background-color: black;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(212, 205, 205);
 }
 
 header {
@@ -12,7 +14,7 @@ header {
   display: flex;
   justify-content: center;
   padding: 20px 36px;
-  border-bottom: 2px solid gray;
+  border-bottom: 1px solid gray;
   background-color: black;
 }
 
@@ -20,28 +22,81 @@ header {
   max-width: 100%;
 }
 
-nav {
+.navbar {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 60px;
-  padding: 30px 25px;
-  border-bottom: 2px solid gray;
+  border-bottom: 1px solid gray;
 }
 
-.shipcard {
-  background-color: rgb(101, 95, 95) ;
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.shipcardDetails {
-  background-color: rgb(44, 41, 41) ;
+.navbar li {
+  margin: 0 10px;
 }
 
-h3, h4, ul, p {
+.navbar a {
+  text-decoration: none;
   color: rgb(212, 205, 205);
 }
 
-h3.uppercase {
+.navbar a:hover {
+  color: rgb(241, 236, 79)
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.shipcard, .shipcardDetails {
+  background-color: rgb(44, 41, 41) ;
+  padding: 10px 10px 10px 20px;;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px 0 rgb(46, 44, 44);
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.shipcard:hover {
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+} 
+
+.shipcardDetails {
+  background-color: rgb(101, 95, 95) ;
+}
+
+.shipcardDetails--title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.shipcardDetails--img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.shipcardDetails--img {
+  max-width: 50% !important;
+  max-height: 50% !important;
+  object-fit: cover !important;
+  border-radius: 5px !important;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.col {
+  margin-left: 50px;
+}
+
+h4.uppercase {
   text-transform: uppercase;
 }
 
