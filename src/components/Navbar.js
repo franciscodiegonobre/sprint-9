@@ -1,14 +1,25 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
+  // Const that holds the style of the link active
+  let activeStyle = {
+    textDecoration: "underline",
+  };
+
   return (
-    <div class="navbar">
+    <div className="navbar">
       <ul>
         <li>
-          <a href="#">HOME</a>
+          <a href="/home">HOME</a>
         </li>
         <li>
-          <a href="#">STARSHIPS</a>
+          <NavLink
+            to="/starships"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            STARSHIPS
+          </NavLink>
         </li>
       </ul>
     </div>

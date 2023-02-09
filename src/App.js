@@ -69,7 +69,6 @@ useEffect(() => {
   return () => intersectionObserver.disconnect();
 }, []);
 
-
   return (
     <div>
       <Header />
