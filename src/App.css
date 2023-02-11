@@ -9,6 +9,37 @@ body {
   color: rgb(212, 205, 205);
 }
 
+.login--container {
+  background-image: url(/src/img/sky-stars.jpg);
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+.login--modal {
+  text-align: center;
+  background-color: rgb(24,24,24);
+  padding: 75px;
+  box-shadow: 0 4px 6px 0 rgb(46, 44, 44);
+}
+
+.login--input-space {
+  margin: 25px;
+}
+
+input {
+  height: 40px;
+  width: 100%;
+  font-size: 18px;
+}
+
+.toggle-login-link {
+  margin-left: 40px;
+}
+
 .home-page {
   background-image: url(/src/img/sky-stars.jpg);
   background-size: cover;
@@ -25,7 +56,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-.home--start-button {
+.cta-button {
   background-color: #FFE81F;
   color: black;
   padding: 15px 30px;
@@ -37,7 +68,7 @@ h1 {
   text-decoration: none;
 }
 
-.home--start-button:hover {
+.cta-button:hover {
   transform: translateY(-5px);
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
   opacity: 0.5;
@@ -76,12 +107,12 @@ header {
   margin: 0 10px;
 }
 
-.navbar a {
+a {
   text-decoration: none;
   color: rgb(212, 205, 205);
 }
 
-.navbar a:hover {
+a:hover {
   color: #FFE81F
 }
 
