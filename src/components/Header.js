@@ -2,9 +2,19 @@ import React from "react";
 import logo from "../img/starwars_logo.jpg";
 
 export default function Header() {
+  function handleLogout() {
+    localStorage.removeItem("isAuthenticated");
+    window.location.pathname = "/";
+  }
+
   return (
-    <header>
-      <img src={logo} className="nav--logo" />
-    </header>
+    <div class="header">
+      <div className="header--leftspace"></div>
+      <img src={logo} className="header--logo" />
+
+      <a href="#" className="header--logout" onClick={handleLogout}>
+        LOGOUT
+      </a>
+    </div>
   );
 }

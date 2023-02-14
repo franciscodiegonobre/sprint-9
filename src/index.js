@@ -6,15 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/home" element={<Home />} />
-        <Route exact path="/starships" element={<App />} />
+        <Route exact path="/" element={<Login />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/starships" element={<App />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

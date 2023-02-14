@@ -75,17 +75,30 @@ h1 {
   color: black;
 }
 
-header {
+.header {
   height: 150px;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 20px 36px;
   border-bottom: 1px solid gray;
   background-color: black;
 }
 
-.nav--logo {
-  max-width: 100%;
+.header--logo {
+  max-width: 20%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header--logout {
+  list-style: none;
+  display: flex;
+}
+
+.header--leftspace {
+  width: 50px;
 }
 
 .navbar {

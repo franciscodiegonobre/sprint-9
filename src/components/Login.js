@@ -18,48 +18,51 @@ export default function Login() {
   }
  
   // Functions to handle the input changes and manage its state
-    const handleChangeLogin = (e) => {
-      setUserLogin({ ...userLogin, [e.target.name]: e.target.value} );
-    }
-    
-    useEffect(() => {
-      localStorage.setItem('userList', JSON.stringify(userList));
-    }, [userList]);
+  const handleChangeLogin = (e) => {
+    setUserLogin({ ...userLogin, [e.target.name]: e.target.value} );
+  }
+  
+  useEffect(() => {
+    localStorage.setItem('userList', JSON.stringify(userList));
+  }, [userList]);
 
   // Function to handle the form submission when user is registered
-    const handleSubmit = (e) => {
-      e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-      setUserList([...userList, { name, username, password }]);
-      localStorage.setItem('userList', JSON.stringify(userList));
-      
-      alert('User has been added to local storage');
-      setName('');
-      setUsername('');
-      setPassword('');
-    }
+    setUserList([...userList, { name, username, password }]);
+    localStorage.setItem('userList', JSON.stringify(userList));
+    
+    alert('User has been added to local storage');
+    setName('');
+    setUsername('');
+    setPassword('');
+  }
 
   // Function to handle the Login
-    const handleLogin = (e) => {
-      e.preventDefault();
- 
-      let isUserAuth 
-      const storedUsers = JSON.parse(localStorage.getItem("userList"));
-      isUserAuth = storedUsers.some(user => user.username === userLogin.username && user.password === userLogin.password);
-      if (isUserAuth) {
-        console.log("Login successfull");
-        setUserLogin({
-          username: "",
-          password: ""
-        })
-      } else {
-        console.log("Login failed");
-        setUserLogin({
-          username: "",
-          password: ""
-        })
-      }
+  let isUserAuth   
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const storedUsers = JSON.parse(localStorage.getItem("userList"));
+    isUserAuth = storedUsers.some(user => user.username === userLogin.username && user.password === userLogin.password);
+    if (isUserAuth) {
+      console.log("Login successfull");
+      setUserLogin({
+        username: "",
+        password: ""
+      })
+      localStorage.setItem("isAuthenticated", "true");
+      window.location.pathname = "/home";
+    } else {
+      console.log("Login failed");
+      setUserLogin({
+        username: "",
+        password: ""
+      })
     }
+    console.log(isUserAuth)
+    return isUserAuth
+  }
 
     return (
       <div className="login--container">
