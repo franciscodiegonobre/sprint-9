@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import ShipCard from "./components/ShipCard";
+import Alert from "react-bootstrap/Alert";
+import Spinner from "react-bootstrap/Spinner";
 
 function App() {
   // States
@@ -12,7 +14,6 @@ function App() {
   const [shipImages, setShipImages] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [hasMoreResults, setHasMoreResults] = useState(true);
 
   // Max number of pages for the API request
   const TOTAL_PAGES = 4;
@@ -53,8 +54,6 @@ function App() {
     if (currentPage > 0 && currentPage <= TOTAL_PAGES) {
       callApi();
       callApiImages();
-    } else {
-      setHasMoreResults(!hasMoreResults);
     }
   }, [currentPage]);
 
@@ -83,13 +82,23 @@ function App() {
       <Navbar />
       <div className="container">
         {shipCards}
-        {loading && <p>Loading...</p>}
-        <div id="sentinel"></div>
-        {!hasMoreResults ? (
-          <div></div>
+        {loading ? (
+          <div className="spinner-div">
+            <Spinner
+              animation="border"
+              role="status"
+              variant="warning"
+              className="spinner"
+            ></Spinner>
+          </div>
         ) : (
-          <p>No more starships to be displayed</p>
+          <Alert variant="danger">
+            <p className="no-results-message">
+              No more results to be displayed
+            </p>
+          </Alert>
         )}
+        <div id="sentinel"></div>
       </div>
     </div>
   );

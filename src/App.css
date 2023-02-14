@@ -36,6 +36,11 @@ input {
   font-size: 18px;
 }
 
+label {
+  color: red;
+  margin-top: 10px;
+}
+
 .toggle-login-link {
   margin-left: 40px;
 }
@@ -66,6 +71,7 @@ h1 {
   font-size: 20px;
   cursor: pointer;
   text-decoration: none;
+  margin-bottom: 10px;
 }
 
 .cta-button:hover {
@@ -181,4 +187,15 @@ h4.uppercase {
 
 #sentinel {
   height: 10px;
+}
+
+.spinner-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+.no-results-message {
+  margin: 0px;
+  text-align: center;
 }

@@ -8,7 +8,7 @@ export default function Header() {
   }
 
   return (
-    <div class="header">
+    <div className="header">
       <div className="header--leftspace"></div>
       <img src={logo} className="header--logo" />
 
